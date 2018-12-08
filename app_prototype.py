@@ -28,21 +28,20 @@ class Task:
         self.subCategory = 'Poetry'
         self.status = False
 
-    def main_menu(self):                            # IDEAS: Show options - create new task, start a task, task summary
-        print("=============================")      # Under start a task menu will show all the tasks you have created-
-        print("========= Main Menu =========")      # to show you which tasks you can choose from
-        print("=============================")      # Task summary show time spent on each task, can show by date range
-        print("=============================")
-        print("========== Choices ==========")
-        print("=============================")
-        print("=    1. Create New Task     =")
-        print("=    2. Start a Task        =")
-        print("=    3. Task Summary        =")
-        print("=============================")
-        print("=============================")
+    def main_menu(self):
+        while True:                                 # IDEAS: Show options - create new task, start a task, task summary
+            print("\n=============================") # Under start a task menu will show all the tasks you have created-
+            print("========= MAIN MENU =========")  # to show you which tasks you can choose from
+            print("=============================")  # Task summary show time spent on each task, can show by date range
+            print("=    1. Create New Task     =")
+            print("=    2. Start a Task        =")
+            print("=    3. Task Summary        =")
+            print("=    9. Exit Program        =")
+            print("=============================\n")
 
-        while True:
-            choice = int(input("=    Make Choice Below:     =\n"))
+            choice = int(input("Choose option from list: "))
+
+            print('\n')
 
             if choice == 1:
                 self.new_task_menu()
@@ -50,12 +49,27 @@ class Task:
                 self.start_task_menu()
             elif choice == 3:
                 self.task_summary_menu()
+            elif choice == 9:
+                print("EXITING PROGRAM...")
+                return
             else:
                 print("Please make a choice from the window above.")
                 return
 
     def new_task_menu(self):
-        print("New task menu!")
+        print("=============================")
+        print("====== 1. Productive  =======")
+        print("====== 2. Free-Time   =======")
+        print("=============================\n")
+
+        choice_new_task = int(input('Choose task category from above: '))
+
+        if choice_new_task == 1:
+            print("Productive")
+        elif choice_new_task == 2:
+            print("Free-Time")
+        else:
+            print("Please restart program and enter valid choice")
 
     def start_task_menu(self):
         print("Start task menu!!")
@@ -67,6 +81,9 @@ class Task:
         self.generalCategory = input("Enter task general category: ")
         self.category = input("Enter task category: ")
         self.subCategory = input("Enter task sub category: ")
+
+    def store_tasks(self):
+        print("placeholder")
 
     def print_task(self):
         print("\nGeneral Category: %s\n" % self.generalCategory)
@@ -88,4 +105,4 @@ class Task:
 
 TEST_OBJECT = Task()
 
-TEST_OBJECT.start_task()
+TEST_OBJECT.main_menu()

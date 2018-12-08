@@ -1,35 +1,23 @@
-import time
+d = {'key1': {5: 2}}
 
-testTask = Task()
+print(d)
 
-testTask.create_task()
+d1 = {input("General category: "): {input('Category: '): {input('Sub-Category: '): input('Time elapsed: ')}}}
 
-print(testTask.category)
+d.update(d1)
 
-print(time.localtime())
+print(d)
 
-currentTime = time.asctime(time.localtime())
+taskDict = {'Productive': {'Reading': {'Poetry': 5000}},
+            'Free-Time': {'Video Games': {'Ark': 2000}}}
 
-print(currentTime)
+print(taskDict)
+print(taskDict['Productive']['Reading'])
+#print(taskDict[input('First key: ')][input('Second key: ')])
 
-startTime = time.asctime(time.localtime())
+for p_id, p_info in taskDict.items():
+    print("\nGeneral Category:", p_id)
 
-startTimer = time.time()
+    for key in p_info:
+        print(key + ':', p_info[key])
 
-print(startTime)
-
-input("press enter to stop timer")
-
-endTime = time.asctime(time.localtime())
-
-endTimer = time.time()
-
-elapsedTime = endTimer - startTimer
-
-print(endTime)
-
-print("Total time elapsed: %s" % elapsedTime)
-
-testTask.print_task()
-
-testTask.main_menu()
